@@ -1,9 +1,13 @@
 from fastapi import FastAPI
 from app.api.routes import router
+from app.core.settings import get_settings
 
 
 def create_app() -> FastAPI:
-    app = FastAPI(title="Accounting Engine")
+    settings = get_settings()
+
+    app = FastAPI(title=settings.app_name, debug=settings.debug)
+
     app.include_router(router)
     return app
 
