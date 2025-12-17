@@ -1,5 +1,7 @@
 [tool.poetry]
-package-mode = false
+name = "accounting-engine"
+version = "0.1.0"
+packages = [{ include = "app" }]
 
 [project]
 name = "accounting-engine"
