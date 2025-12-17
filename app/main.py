@@ -1,13 +1,10 @@
 from fastapi import FastAPI
+from app.api.routes import router
 
 
 def create_app() -> FastAPI:
     app = FastAPI(title="Accounting Engine")
-
-    @app.get("/health")
-    async def health_check():
-        return {"status": "ok"}
-
+    app.include_router(router)
     return app
 
 
